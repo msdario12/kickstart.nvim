@@ -17,12 +17,17 @@ return {
 			desc = 'Horizontal vertical'
 		},
 		{
-			mode = 't',
-			'<leader>th',
-			'<cmd>ToggleTerm size=10 dir=git_dir direction=horizontal name=desktop<CR>',
-			desc = 'Horizontal terminal'
+			mode = 'n',
+			'<leader>tf',
+			'<cmd>ToggleTerm size=50 dir=git_dir direction=float <CR>',
+			desc = 'Horizontal float'
 		},
-
+		{
+			mode = 't',
+			'<leader>tc',
+			'<cmd>ToggleTerm<CR>',
+			desc = 'Toggle terminal'
+		},
 
 	}
 }
