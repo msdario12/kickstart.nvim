@@ -52,4 +52,6 @@ M.map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 M.map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 M.map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 M.map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- open edit of nvim
+M.map("n", "<leader>vc", "<cmd>edit ~/AppData/Local/nvim<cr>", { desc = "Open nvim config dir" })
 return M
