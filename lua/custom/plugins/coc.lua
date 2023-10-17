@@ -34,7 +34,7 @@ M.config = function()
 		opts)
 	keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 	-- Custom
-	keyset("i", "<CR>", "coc#refresh()", { silent = true, expr = true })
+	keyset("i", "<CR>", "coc#refresh()", { silent = true })
 	-- Make <CR> to accept selected completion item or notify coc.nvim to format
 	-- <C-g>u breaks current undo, please make your own choice
 	keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<CR>\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
@@ -48,10 +48,10 @@ M.config = function()
 	keyset("n", "]g", "<Plug>(coc-diagnostic-next)", { silent = true })
 
 	-- GoTo code navigation
-	keyset("n", "gd", "<Plug>(coc-definition)", { silent = true })
-	keyset("n", "gy", "<Plug>(coc-type-definition)", { silent = true })
-	keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true })
-	keyset("n", "gr", "<Plug>(coc-references)", { silent = true })
+	keyset("n", "<leader>gd", "<Plug>(coc-definition)", { silent = true, desc = 'Go definition COC' })
+	keyset("n", "<leader>gy", "<Plug>(coc-type-definition)", { silent = true, desc = 'Go Type Definition COC' })
+	keyset("n", "<leader>gi", "<Plug>(coc-implementation)", { silent = true, desc = 'Go implementation COC' })
+	keyset("n", "<leader>gr", "<Plug>(coc-references)", { silent = true, desc = 'Go References COC' })
 
 
 	-- Use K to show documentation in preview window
@@ -79,12 +79,12 @@ M.config = function()
 
 
 	-- Symbol renaming
-	keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
+	keyset("n", "<leader>cr", "<Plug>(coc-rename)", { silent = true, desc = 'Rename COC' })
 
 
 	-- Formatting selected code
-	keyset("x", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
-	keyset("n", "<leader>f", "<Plug>(coc-format-selected)", { silent = true })
+	keyset("x", "<leader>cf", "<Plug>(coc-format-selected)", { silent = true, desc = 'Format selection COC' })
+	keyset("n", "<leader>cf", "<Plug>(coc-format-selected)", { silent = true, desc = 'Format selection COC' })
 
 
 	-- Setup formatexpr specified filetype(s)
@@ -106,25 +106,29 @@ M.config = function()
 	-- Apply codeAction to the selected region
 	-- Example: `<leader>aap` for current paragraph
 	local opts = { silent = true, nowait = true }
-	keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
-	keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+	-- Add description
+	local function opts_with_desc(desc)
+		return { silent = true, nowait = true, desc = desc }
+	end
+	keyset("x", "<Plug>(coc-codeaction-selected)", "<leader>at", opts_with_desc('Code Action Selected COC'))
+	keyset("n", "<Plug>(coc-codeaction-selected)", "<leader>at", opts_with_desc('Code Action Selected COC'))
 
 	-- Remap keys for apply code actions at the cursor position.
-	keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts)
+	keyset("n", "<leader>ac", "<Plug>(coc-codeaction-cursor)", opts_with_desc('Code Action Cursor COC'))
 	-- Remap keys for apply code actions affect whole buffer.
-	keyset("n", "<leader>as", "<Plug>(coc-codeaction-source)", opts)
+	keyset("n", "<leader>aw", "<Plug>(coc-codeaction-source)", opts_with_desc('Code Actions Buffer COC'))
 	-- Remap keys for applying codeActions to the current buffer
-	keyset("n", "<leader>ac", "<Plug>(coc-codeaction)", opts)
+	keyset("n", "<leader>ab", "<Plug>(coc-codeaction)", opts_with_desc('Code Action Current Buffer COC'))
 	-- Apply the most preferred quickfix action on the current line.
-	keyset("n", "<leader>qf", "<Plug>(coc-fix-current)", opts)
+	keyset("n", "<leader>aq", "<Plug>(coc-fix-current)", opts_with_desc('Quickfix on current line COC'))
 
 	-- Remap keys for apply refactor code actions.
-	keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
-	keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
-	keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+	keyset("n", "<leader>ar", "<Plug>(coc-codeaction-refactor)", { silent = true })
+	keyset("x", "<leader>as", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+	keyset("n", "<leader>as", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
 
 	-- Run the Code Lens actions on the current line
-	keyset("n", "<leader>cl", "<Plug>(coc-codelens-action)", opts)
+	keyset("n", "<leader>al", "<Plug>(coc-codelens-action)", opts)
 
 
 	-- Map function and class text objects

@@ -28,6 +28,18 @@ return {
 			'<cmd>ToggleTerm<CR>',
 			desc = 'Toggle terminal'
 		},
+		{
+			mode = 't',
+			'<leader>ts',
+			'<cmd>TermSelect<CR>',
+			desc = 'Select terminal'
+		},
+		{
+			mode = 'n',
+			'<leader>ts',
+			'<cmd>TermSelect<CR>',
+			desc = 'Select terminal'
+		},
 
 	}
 }

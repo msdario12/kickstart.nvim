@@ -93,21 +93,21 @@ require('lazy').setup({
     },
   },
 
-   {
-  -- Autocompletion
-     'hrsh7th/nvim-cmp',
-     dependencies = {
-       -- Snippet Engine & its associated nvim-cmp source
-       'L3MON4D3/LuaSnip',
-       'saadparwaiz1/cmp_luasnip',
-  
+  {
+    -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      -- Snippet Engine & its associated nvim-cmp source
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
- 
-     -- Adds a number of user-friendly snippets
-     'rafamadriz/friendly-snippets',
-   },
- },
+
+      -- Adds a number of user-friendly snippets
+      'rafamadriz/friendly-snippets',
+    },
+  },
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
@@ -227,8 +227,8 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  { import = 'custom.plugins' }}
-  --  Import custom keymaps
+  { import = 'custom.plugins' } }
+--  Import custom keymaps
 , {})
 
 -- [[ Setting options ]]
@@ -365,8 +365,8 @@ vim.defer_fn(function()
         keymaps = {
           -- You can use the capture groups defined in textobjects.scm
           ['aa'] = '@parameter.outer',
-          ['ia'] = '@parameter.inner',
           ['af'] = '@function.outer',
+          ['ia'] = '@parameter.inner',
           ['if'] = '@function.inner',
           ['ac'] = '@class.outer',
           ['ic'] = '@class.inner',
@@ -395,10 +395,10 @@ vim.defer_fn(function()
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>a'] = '@parameter.inner',
+          ['<leader>sa'] = '@parameter.inner',
         },
         swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
+          ['<leader>sA'] = '@parameter.inner',
         },
       },
     },
