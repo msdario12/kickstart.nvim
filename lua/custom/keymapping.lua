@@ -15,6 +15,7 @@ M.map('i', 'jk', '<ESC>', { silent = true })
 -- CUSTOMS KEYMAPS
 --
 --j k
+M.map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 -- moving window
 M.map("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
 M.map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })

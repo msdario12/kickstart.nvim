@@ -2,5 +2,6 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "coc.preferences.formatOnSave": true
 }
