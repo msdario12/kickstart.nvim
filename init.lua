@@ -211,6 +211,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'windwp/nvim-ts-autotag'
     },
     build = ':TSUpdate',
   },
@@ -338,6 +339,17 @@ vim.keymap.set('n', '<leader>fe', require('telescope.builtin').resume, { desc = 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    underline = true,
+    virtual_text = {
+      spacing = 5,
+      severity_limit = 'Warning',
+    },
+    update_in_insert = true,
+  }
+)
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
@@ -346,6 +358,10 @@ vim.defer_fn(function()
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
+
+    autotag = {
+      enable = true
+    },
 
     highlight = { enable = true },
     indent = { enable = true },

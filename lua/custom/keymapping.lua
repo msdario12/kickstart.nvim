@@ -55,4 +55,7 @@ M.map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 M.map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
 -- open edit of nvim
 M.map("n", "<leader>vc", "<cmd>edit ~/AppData/Local/nvim<cr>", { desc = "Open nvim config dir" })
+-- change settings
+--
+M.map("n", "<leader>uw", "<cmd>:set wrap!<cr>", { desc = "Toggle wrap word" })
 return M
