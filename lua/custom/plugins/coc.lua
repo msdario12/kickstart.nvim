@@ -2,6 +2,7 @@ local M = {
 	"neoclide/coc.nvim",
 	branch = "release",
 	build = "npm install --force --frozen-lockfile",
+	cond = { vim.g.vscode },
 }
 
 M.config = function()

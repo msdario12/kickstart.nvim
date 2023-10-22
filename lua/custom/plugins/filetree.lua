@@ -11,11 +11,14 @@ vim.opt.termguicolors = true
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	version = "*",
+	vscode = false,
+	cond = { vim.g.vscode },
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		"MunifTanjim/nui.nvim",
 	},
+	cond = { vim.g.vscode },
 	keys = {
 		{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
 	},
