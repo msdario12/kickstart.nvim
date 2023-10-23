@@ -76,7 +76,6 @@ else
     }
   end
   vim.opt.rtp:prepend(lazypath)
-
   -- NOTE: Here is where you install your plugins.
   --  You can configure plugins using the `config` key.
   --
@@ -94,6 +93,8 @@ else
 
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.
+    --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
+    { import = 'custom.plugins' },
     {
       -- LSP Configuration & Plugins
       'neovim/nvim-lspconfig',
@@ -180,15 +181,15 @@ else
       },
     },
 
-    {
-      -- Theme inspired by Atom
-      'navarasu/onedark.nvim',
-      cond = vim.g.vscode,
-      priority = 1000,
-      config = function()
-        vim.cmd.colorscheme 'onedark'
-      end,
-    },
+    -- {
+    --   -- Theme inspired by Atom
+    --   'navarasu/onedark.nvim',
+    --   cond = vim.g.vscode,
+    --   priority = 1000,
+    --   config = function()
+    --     vim.cmd.colorscheme 'onedark'
+    --   end,
+    -- },
 
     {
       -- Set lualine as statusline
@@ -263,8 +264,7 @@ else
     --    up-to-date with whatever is in the kickstart repo.
     --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
     --
-    --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-    { import = 'custom.plugins' } }
+  }
   --  Import custom keymaps
   , {})
 
