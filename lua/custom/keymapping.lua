@@ -62,4 +62,9 @@ M.map("n", "<leader>vw", "<cmd>edit ~/.wezterm.lua<cr>", { desc = "Open wezterm 
 -- change settings
 --
 M.map("n", "<leader>uw", "<cmd>:set wrap!<cr>", { desc = "Toggle wrap word" })
+--- TMUX NAVIGATOR
+M.map("n", "<C-h>", "<cmd> TmuxNavigateLeft<cr>", { desc = "Window left TMUX" })
+M.map("n", "<C-l>", "<cmd> TmuxNavigateRight<cr>", { desc = "Window right TMUX" })
+M.map("n", "<C-j>", "<cmd> TmuxNavigateDown<cr>", { desc = "Window down TMUX" })
+M.map("n", "<C-k>", "<cmd> TmuxNavigateUp<cr>", { desc = "Window up TMUX" })
 return M
